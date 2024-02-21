@@ -37,7 +37,10 @@ const [tasks, setTasks] = useState([]);
   <View style={styles.list}>
   {tasks.length === 0 ? (
     <Text style={styles.emplyList}>Nenhuma Tarefa Cadastrada</Text>
-  ) : tasks.map((task) => (
+  ) : (
+    <Text style={styles.cadasterList}>Tarefas Cadastradas</Text>
+  )}
+  {tasks.map((task) => (
     <View
       key={task.id}
       style={styles.item}
@@ -55,6 +58,7 @@ const [tasks, setTasks] = useState([]);
   <StatusBar style="auto" />
 </View>
 	);
+  
 }
 
 const styles = StyleSheet.create({
@@ -71,9 +75,13 @@ const styles = StyleSheet.create({
   },
   input:{
     borderWidth: 1,
-    borderColor: "#000",
     width: "75%",
     padding: 5,
+    borderBottomColor: "#000",
+    borderTopColor: "#fff",
+    borderLeftColor: "#fff",
+    borderRightColor: "#fff",
+    borderRadius: 5,
   },
   button:{
     backgroundColor: "blue",
@@ -87,20 +95,28 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "#ff0000",
   },
+  cadasterList:{
+    textAlign: "center",
+    color: "#008000",
+  },
   list:{
     marginTop: 20,
   },
   item:{
-    backgroundColor: "#f0f0f0",
-    padding: 10,
-    marginVertical: 5,
+    borderBottomColor: "#000",
+    borderBottomWidth: 1,
+    marginBottom: 10,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingBottom: 5,
   },
   itemText:{
-    fontSize: 18,
+    width: "75%",
   },
   removeButton:{
     backgroundColor: "#ff0000",
-    padding: 10,
+    padding: 5,
     borderRadius: 5,
   },
   removeButtonText:{
